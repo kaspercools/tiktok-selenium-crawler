@@ -1,12 +1,9 @@
-import os.path
 import uuid
 import shutil
 from os import path
 from selenium.webdriver.common.action_chains import ActionChains
-import time
-import io
 from time import sleep
-import DataReader
+import data_reader
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -249,13 +246,10 @@ failedPath = "./failed"
 print('running script')
 
 while(True):
-    toBeProcessed = DataReader.get_files(todoPath + '/tmp.json')
+    toBeProcessed = data_reader.get_files(todoPath + '/tmp.json')
 
     for file in toBeProcessed:
-        posts = DataReader.read_json(file)
-        # posts contains posts to be processed
-        # process postsprint
-        # process postsprint
+        posts = data_reader.read_json(file)
         for post in posts:
             process_posts(post)
         
